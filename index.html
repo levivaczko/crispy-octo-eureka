@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: "Segoe UI", "Segoe UI Web (West European)", sans-serif;
+      color: #1f1f1f;
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+      background-color: transparent;
+    }
+
+    details {
+      margin-bottom: 30px;
+      max-width: 800px;
+    }
+    
+    summary {
+      font-size: 36px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #edebe9;
+    }
+    
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "⌵";
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 20px;
+      transform: rotate(-90deg);
+      transition: transform 0.2s ease;
+      color: #005df2;
+    }
+
+    details[open] summary::before {
+      transform: rotate(0deg);
+    }
+
+    details[open] summary {
+      border-bottom: none;
+      margin-bottom: 15px;
+    }
+
+    .software-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      padding-left: 35px;
+    }
+
+    .software-text {
+      max-width: 80%;
+    }
+
+    .software-title {
+      font-size: 25px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .software-desc {
+      font-size: 20px;
+      color: #323130;
+      margin-bottom: 5px;
+    }
+
+    .request-link {
+      font-size: 20px;
+      color: #005df2;
+      text-decoration: none;
+    }
+
+    .request-link:hover {
+      text-decoration: underline;
+    }
+
+    .price {
+      font-size: 20px;
+      color: #605e5c;
+      margin-bottom: 5px;
+    }
+
+    /* Kép formázása (Logók) */
+    .software-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 12px;
+      flex-shrink: 0;
+      margin-left: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Helyőrző, ha nincs még kép (pl. Power BI) */
+    .icon-placeholder {
+      width: 60px;
+      height: 60px;
+      background-color: #f3f2f1;
+      border: 1px dashed #c8c6c4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #a19f9d;
+      border-radius: 12px;
+      flex-shrink: 0;
+      margin-left: 20px;
+      text-align: center;
+    }
+
+    .sp-tooltip-container {
+      margin-top: 10px;
+    }
+
+    .sp-tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      border-bottom: 2px dotted #005df2;
+      color: #005df2;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .sp-tooltip::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: transparent;
+    }
+    
+    .sp-tooltip .sp-tooltiptext {
+      visibility: hidden;
+      width: 300px;
+      background-color: #ffffff;
+      color: #323130;
+      text-align: left;
+      padding: 16px;
+      border: 1px solid #005df2; 
+      border-radius: 6px;
+      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+      font-weight: 400; 
+      font-size: 18px;
+      position: absolute;
+      z-index: 100;
+      bottom: calc(100% + 14px);
+      left: -15px; 
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+
+    .sp-tooltip .sp-tooltiptext::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 34px; 
+      border-width: 9px;
+      border-style: solid;
+      border-color: #005df2 transparent transparent transparent;
+    }
+
+    .sp-tooltip .sp-tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 35px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: #ffffff transparent transparent transparent;
+    }
+
+    .sp-tooltip:hover .sp-tooltiptext {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <details open>
+    <summary>Dokumentumkezelés és PDF szerkesztés</summary>
+    
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Adobe Acrobat Pro DC</div>
+        <div class="software-desc">Az Adobe Acrobat Pro DC egy professzionális PDF-kezelő alkalmazás, amely lehetővé teszi PDF fájlok létrehozását, szerkesztését, aláírását és konvertálását egyetlen platformon.</div>
+        <div class="price">Ár: US$24.98</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+        
+        <div class="sp-tooltip-container">
+          <div class="sp-tooltip">AI integráció az applikációban
+            <span class="sp-tooltiptext">
+              <strong>Adobe Acrobat Pro DC AI funkciók:</strong><br><br>
+              Lehetővé teszi dokumentumok gyorsabb feldolgozását, tartalom összefoglalását és intelligens keresést a beépített mesterséges intelligencia segítségével.
+            </span>
+          </div>
+        </div>
+      </div>
+      <img src="adobe.png" alt="Adobe Acrobat" class="software-logo">
+    </div>
+
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Adobe Acrobat Standard</div>
+        <div class="software-desc">Az Adobe Acrobat Standard egy alapvető PDF-kezelő eszköz, amely lehetővé teszi dokumentumok megtekintését, egyszerű szerkesztését és aláírását.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+        
+        <div class="sp-tooltip-container">
+          <div class="sp-tooltip">AI integráció az applikációban
+            <span class="sp-tooltiptext">
+              <strong>Adobe Acrobat Standard AI:</strong><br><br>
+              Alapvető AI támogatott dokumentumfelismerő (OCR) és szövegkiemelő funkciók.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Kreatív terület: Grafika, Videó és Design</summary>
+    
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Adobe Photoshop</div>
+        <div class="software-desc">Az Adobe Photoshop egy professzionális képszerkesztő szoftver, amely digitális képek és grafikák létrehozására, javítására és átalakítására szolgál.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+        
+        <div class="sp-tooltip-container">
+          <div class="sp-tooltip">AI integráció az applikációban
+            <span class="sp-tooltiptext">Generatív kitöltés (Generative Fill) és mesterséges intelligenciával támogatott képmódosítási funkciók.</span>
+          </div>
+        </div>
+      </div>
+      <img src="photoshop.png" alt="Adobe Photoshop" class="software-logo">
+    </div>
+
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Adobe Creative Cloud - Illustrator</div>
+        <div class="software-desc">Az Adobe Illustrator egy vektorgrafikus tervezőprogram, amely logók, ikonok és illusztrációk precíz létrehozására szolgál.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+        
+        <div class="sp-tooltip-container">
+          <div class="sp-tooltip">AI integráció az applikációban
+            <span class="sp-tooltiptext">Generatív vektor színezés és intelligens objektum felismerés.</span>
+          </div>
+        </div>
+      </div>
+      <img src="illustrator.png" alt="Adobe Illustrator" class="software-logo">
+    </div>
+
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Adobe Creative Cloud - InDesign</div>
+        <div class="software-desc">Az Adobe InDesign egy kiadványszerkesztő alkalmazás, amely online és nyomtatott tartalmak vizuális megtervezésére és elrendezésére szolgál.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+      </div>
+      <img src="indesign.png" alt="Adobe InDesign" class="software-logo">
+    </div>
+
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Adobe Creative Cloud All Apps</div>
+        <div class="software-desc">Teljes Adobe kreatív csomag az összes alkalmazással.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Kommunikáció, Nyelv és Szövegalkotás</summary>
+    
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">DeepL Translator Advanced</div>
+        <div class="software-desc">A DeepL Translator Advanced egy mesterséges intelligencián alapuló fordítóeszköz, amely pontos és természetes szövegfordítást biztosít több nyelv között.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+      </div>
+      <img src="icon.jpeg" alt="DeepL Translator" class="software-logo" style="border-radius: 6px;">
+    </div>
+
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">DeepL Write Pro</div>
+        <div class="software-desc">A DeepL Write Pro egy mesterséges intelligencián alapuló írássegítő eszköz, amely szövegek stílusának, nyelvhelyességének és érthetőségének javítására szolgál.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Üzleti Intelligencia és Adatelemzés</summary>
+    
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Power BI Pro</div>
+        <div class="software-desc">A Power BI Pro egy üzleti elemző eszköz, amely adatok vizualizálására, elemzésére és interaktív jelentések készítésére szolgál.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+        
+        <div class="sp-tooltip-container">
+          <div class="sp-tooltip">AI integráció az applikációban
+            <span class="sp-tooltiptext">Copilot és beépített AI modellek segítik az adatok automatikus elemzését és vizualizációját.</span>
+          </div>
+        </div>
+      </div>
+      <div class="icon-placeholder">Kép helye</div>
+    </div>
+
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Power BI Premium per user</div>
+        <div class="software-desc">A Power BI Premium per user egy fejlettebb Power BI verzió, amely nagyobb elemzési kapacitást, bővített funkciókat és részletesebb adatfeldolgozást biztosít egyéni felhasználók számára.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Folyamatautomatizálás és Alkalmazásfejlesztés</summary>
+    
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Power Apps Per User Plan</div>
+        <div class="software-desc">A Power Apps Per User Plan egy fejlesztői eszköz, amely lehetővé teszi egyedi üzleti alkalmazások létrehozását és használatát egyéni felhasználók számára kódolás nélkül.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+      </div>
+      <img src="power-apps-128x128.png" alt="Power Apps" class="software-logo">
+    </div>
+
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Power Automate Premium (per user)</div>
+        <div class="software-desc">A Power Automate Premium egy automatizálási eszköz, amely lehetővé teszi üzleti folyamatok és munkafolyamatok automatizálását különböző alkalmazások és szolgáltatások között.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+      </div>
+      <div class="icon-placeholder">Kép helye</div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Produktivitás és Általános Irodai Asszisztencia</summary>
+    
+    <div class="software-item">
+      <div class="software-text">
+        <div class="software-title">Microsoft 365 Copilot</div>
+        <div class="software-desc">A Microsoft 365 Copilot egy mesterséges intelligenciával támogatott asszisztens, amely segíti a dokumentumkészítést, adatfeldolgozást és a mindennapi munkafolyamatok automatizálását a Microsoft 365 alkalmazásokon belül.</div>
+        <a href="#" class="request-link">itt igényelhető</a>
+        
+        <div class="sp-tooltip-container">
+          <div class="sp-tooltip">AI integráció az applikációban
+            <span class="sp-tooltiptext">Teljes körű LLM (Nagy Nyelvi Modell) integráció a Word, Excel, PowerPoint, Teams és Outlook szoftverekbe.</span>
+          </div>
+        </div>
+      </div>
+      <div class="icon-placeholder">Kép helye</div>
+    </div>
+  </details>
+
+</body>
+</html>
